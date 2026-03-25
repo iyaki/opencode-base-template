@@ -1,10 +1,5 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"compaction": {
-		"auto": false,
-		"prune": true,
-		"reserved": 0
-	},
 	"permission": {
 		"bash": {
 			"git commit*-n*": "deny",
