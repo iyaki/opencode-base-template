@@ -26,9 +26,7 @@
 			},
 			"permission": {
 				"edit": {
-					".go-arch-lint": "deny",
-					".golangci.yml": "deny",
-					"lefthook.ymll": "deny",
+					"lefthook.yml": "deny",
 					"opencode.jsonc": "deny",
 					"logs/*": "deny"
 				}
