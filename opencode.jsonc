@@ -8,6 +8,8 @@
 		"edit": {
 			"lefthook.ymll": "ask",
 			"opencode.jsonc": "ask",
+			".git/*": "deny",
+      "node_modules/*": "deny",
 			"logs/*": "deny",
 			"/tmp/*": "allow"
 		}
