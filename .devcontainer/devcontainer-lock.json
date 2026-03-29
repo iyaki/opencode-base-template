@@ -21,9 +21,9 @@
       "integrity": "sha256:dbf431d6b42d55cde50fa1df75c7f7c3999a90cde6d73f7a7071174b3c3d0cc4"
     },
     "ghcr.io/iyaki/devcontainer-features/lefthook:": {
-      "version": "1.0.0",
-      "resolved": "ghcr.io/iyaki/devcontainer-features/lefthook@sha256:e17ab8c61b4e4adad9f8c6d9e3ffaac5b53129bb60254fb9c7149fbf0096d966",
-      "integrity": "sha256:e17ab8c61b4e4adad9f8c6d9e3ffaac5b53129bb60254fb9c7149fbf0096d966"
+      "version": "2.0.1",
+      "resolved": "ghcr.io/iyaki/devcontainer-features/lefthook@sha256:fb888f615f4eb7f3df34ab020b0ededed229ab391af8b03a4007f8fdedc7241a",
+      "integrity": "sha256:fb888f615f4eb7f3df34ab020b0ededed229ab391af8b03a4007f8fdedc7241a"
     },
     "ghcr.io/iyaki/devcontainer-features/ralph:": {
       "version": "1.0.1",
