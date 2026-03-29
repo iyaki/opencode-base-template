@@ -25,10 +25,10 @@
       "resolved": "ghcr.io/iyaki/devcontainer-features/lefthook@sha256:e17ab8c61b4e4adad9f8c6d9e3ffaac5b53129bb60254fb9c7149fbf0096d966",
       "integrity": "sha256:e17ab8c61b4e4adad9f8c6d9e3ffaac5b53129bb60254fb9c7149fbf0096d966"
     },
-    "ghcr.io/iyaki/devcontainer-features/opencode-ralph:": {
-      "version": "1.0.0",
-      "resolved": "ghcr.io/iyaki/devcontainer-features/opencode-ralph@sha256:5572c55ebc70876a65bd795d0e7c673bdc933e8a7570509f8914123e484b2a11",
-      "integrity": "sha256:5572c55ebc70876a65bd795d0e7c673bdc933e8a7570509f8914123e484b2a11"
+    "ghcr.io/iyaki/devcontainer-features/ralph:": {
+      "version": "1.0.1",
+      "resolved": "ghcr.io/iyaki/devcontainer-features/ralph@sha256:8dc4074272d223c3327a5875c05aaff6ea5856e95b55f0b9df661d472b5862f6",
+      "integrity": "sha256:8dc4074272d223c3327a5875c05aaff6ea5856e95b55f0b9df661d472b5862f6"
     }
   }
 }
