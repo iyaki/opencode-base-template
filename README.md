@@ -1,16 +1,147 @@
-# Devcontainerized Project Repository Template
+# AI Driven Development Project Template
 
-For use with [OpenCode](https://opencode.ai/) and [Ralph](https://github.com/iyaki/ralph).
+A practical starter template for builders using OpenCode and Ralph in a containerized Spec-Driven Development workflow.
 
-Remember to:
+This repository gives sensible defaults, guardrails, and batteries-included tooling so you can clone, open, and ship quickly.
 
- - Change devcontainer project name
- - Change README.md to reflect your project
- - Modify AGENTS.md as needed
- - Configure git hooks to work as backpressure for agents
+## Why this template exists
 
-Optional configurations:
+- Standardize a fast, consistent AI-assisted workflow across local and CI.
+- Make quality and security checks easy to adopt from day one.
+- Provide a reusable baseline for building and shipping across different stacks.
 
-- Add DATACOMMONS_API_KEY env var (on .env file) for usage with Data Commons MCP and enable the MCP server on opencode config - https://apikeys.datacommons.org/
-- Add Test driven development skill
-- Add secret `SEMGREP_APP_TOKEN` to Github Repo for usage with semgrep on security Github Action Workflow
+## What you get out of the box
+
+### 1) Dev environment defaults
+
+- Devcontainer based on the universal image.
+- Preinstalled tools/features:
+	- OpenCode
+	- Ralph
+	- Lefthook (git hooks manager)
+- VS Code extensions preconfigured:
+	- OpenCode extension
+	- EditorConfig
+	- Gremlins (invisible-character detector)
+- Host config mounts for OpenCode state and GitHub CLI config.
+- Auto setup on initialize/post-create/post-start:
+	- Creates local OpenCode and GH config directories if missing.
+	- Installs git hooks via Lefthook.
+	- Refreshes available OpenCode models.
+
+### 2) Agent and workflow defaults
+
+- OpenCode config includes a dedicated Ralph-compatible agent mode.
+- Default Ralph loop settings:
+	- max iterations set
+	- logs enabled to logs/ralph.log
+	- specs directory wired to specs/
+	- OpenCode selected as agent backend
+- Permission guardrails in OpenCode config to reduce risky edits.
+	- Blocks bypass-style commit patterns (for example, no-verify commit flows).
+	- Restricts editing sensitive paths like git internals, logs, and selected config files.
+- Plugin defaults enabled for environment safety and quota visibility.
+	- envsitter-guard
+	- @slkiser/opencode-quota
+
+### 3) MCP server integrations
+
+The template includes preconfigured MCP entries you can enable/disable per project.
+These are available for agent workflows through OpenCode configuration and compatible MCP-aware tooling in your workspace.
+
+Enabled by default:
+
+- Context7
+- open-websearch with DuckDuckGo
+- grep.app MCP
+- gitmcp
+
+Included but disabled by default:
+
+- Scrapling via Docker
+- Data Commons; requires DATACOMMONS_API_KEY
+- async-bash-mcp
+
+### 4) Skills included
+
+This template ships with a curated starter skill set:
+
+- code-search: Symbol lookup workflow using Repomix snapshots.
+- dev-browser: Browser automation and UI verification using agent-browser.
+- frontend-design: High-quality, production-grade frontend design guidance.
+- reddit: Fetch/search subreddit posts and metadata through Reddit public JSON APIs.
+- shell-command: Non-interactive shell execution strategy for agent reliability.
+- skill-creator: Build and package new reusable skills.
+- spec-creator: Generate technical specs compatible with Ralph workflows.
+
+### 5) Repository defaults and quality baseline
+
+- Editor and formatting standards via EditorConfig.
+- Git hygiene defaults via .gitignore.
+- Dependabot configured for:
+	- Devcontainer updates
+	- npm updates
+- Dependabot auto-merge workflow included for minor updates.
+- Security workflow template included for Semgrep (requires SEMGREP_APP_TOKEN secret).
+
+### 6) Enabling automatic Dependabot merge
+
+This template includes [.github/workflows/dependabot-automerge.yml](.github/workflows/dependabot-automerge.yml), but GitHub repository permissions must allow workflows to create and approve pull requests.
+
+To enable it:
+
+1. Open https://github.com/<user>/<repository>/settings/actions
+2. Go to Workflow permissions
+3. Enable Allow GitHub Actions to create and approve pull requests
+4. Save changes
+
+Without this setting, the workflow can run but will not be allowed to auto-merge Dependabot PRs.
+
+## Sensible defaults checklist
+
+This template intentionally defaults to:
+
+- Containerized development first.
+- Agent-assisted development with explicit permissions.
+- Reproducible skill and tool setup.
+- Automated dependency upkeep.
+- Security scanning hooks ready to activate.
+- Logs and specs wired for iterative AI loops.
+
+## Quick start
+
+1. Use this repository as a template and create your project repo.
+2. Update the devcontainer name and this README for your project identity.
+3. Open in VS Code Dev Containers / Codespaces.
+4. Let post-create tasks complete.
+5. Configure optional secrets and environment variables:
+	 - DATACOMMONS_API_KEY for Data Commons MCP
+	 - SEMGREP_APP_TOKEN for Semgrep workflow
+6. Adjust AGENTS.md and OpenCode permissions to match your workflow and risk tolerance.
+
+## Optional project setup paths
+
+Scaffolding folders are provided under templates/:
+
+- go/
+- javascript/
+- php/
+
+You can add your own starter files, scripts, and language-specific conventions there.
+
+## Recommended first customizations
+
+- Rename the devcontainer project.
+- Tailor AGENTS.md to your code review and coding standards.
+- Configure lefthook rules with lint/test checks relevant to your stack.
+- Enable additional CI workflows (tests, lint, build, release).
+- Add a TDD-focused skill if your workflow relies on test-first development.
+
+## Reference links
+
+- OpenCode: https://opencode.ai/
+- Ralph: https://github.com/iyaki/ralph
+- Dependabot options: https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+- Devcontainer Dependabot support: https://containers.dev/guide/dependabot
+- Data Commons API keys: https://apikeys.datacommons.org/
+- Semgrep CI: https://semgrep.dev/docs/semgrep-ci/
