@@ -1,6 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-SCRIPTPATH="$(dirname "$(realpath "$0")")"
+case "$0" in
+	/*) SCRIPT_PATH="$0" ;;
+	*) SCRIPT_PATH="$PWD/$0" ;;
+esac
+SCRIPTPATH="$(CDPATH= cd "$(dirname "$SCRIPT_PATH")" 2>/dev/null && pwd -P)"
 
 mkdir -p ~/.local/share/opencode
 mkdir -p ~/.local/state/opencode
