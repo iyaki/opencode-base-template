@@ -63,6 +63,13 @@ jobs:
             exit 0
           fi
 
+          # Files intentionally different per template stack; never synced from root.
+          no_sync_files=(
+            "README.md"
+            ".gitignore"
+            "lefthook.yml"
+          )
+
           synced_targets=()
           conflict_targets=()
           temp_dir="$(mktemp -d)"
@@ -72,6 +79,16 @@ jobs:
             [[ -z "$source" ]] && continue
             [[ "$source" == templates/* ]] && continue
             [[ ! -f "$source" ]] && continue
+
+            basename_source="$(basename "$source")"
+            skip=false
+            for no_sync in "${no_sync_files[@]}"; do
+              if [[ "$basename_source" == "$no_sync" ]]; then
+                skip=true
+                break
+              fi
+            done
+            [[ "$skip" == true ]] && continue
 
             for template_dir in "${template_dirs[@]}"; do
               target="$template_dir/$source"
