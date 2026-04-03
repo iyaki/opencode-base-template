@@ -1,3 +1,5 @@
+# https://lefthook.dev/configuration/
+
 assert_lefthook_installed: true
 
 no_tty: true
