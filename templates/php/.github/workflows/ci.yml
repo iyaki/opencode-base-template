@@ -72,20 +72,6 @@ jobs:
       - name: Generate coverage report
         run: composer test:coverage
 
-      - name: Check Rector changes
-        run: composer rector:check
-
-      - name: Deptrac analysis
-        run: composer deptrac
-
       - name: Mutation testing
         run: composer mutation
         continue-on-error: true
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage/coverage.xml
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false

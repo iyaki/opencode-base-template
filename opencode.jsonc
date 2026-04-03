@@ -7,7 +7,7 @@
 			"*.git*": "deny"
 		},
 		"edit": {
-			"lefthook.ymll": "ask",
+			"lefthook.yml": "ask",
 			"opencode.jsonc": "ask",
 			".git/*": "deny",
 			"node_modules/*": "deny",

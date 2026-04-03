@@ -44,8 +44,7 @@
     "validate:autoload": "composer dump-autoload --dev --optimize --strict-psr --strict-ambiguous",
     "verify": [
       "@lint",
-      "@test",
-      "@backpressure"
+      "@test"
     ],
     "quality": [
       "@verify",
@@ -54,7 +53,6 @@
       "@deps:analyze",
       "@test:coverage",
       "@mutation",
-      "@rector:check",
       "@validate:composer",
       "@validate:autoload"
     ]

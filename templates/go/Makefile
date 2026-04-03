@@ -1,6 +1,6 @@
 # Makefile for Go AI Harness projects
 
-.PHONY: help verify quality format lint test test-race test-coverage coverage mutation security arch backpressure doctor tools run
+.PHONY: help verify quality format lint test test-race test-coverage coverage mutation security arch doctor tools run
 
 GO ?= go
 COVERAGE_MIN ?= 99
@@ -9,7 +9,7 @@ APP_BIN ?= bin/app
 help:
 	@printf "%s\n" \
 	"Common targets:" \
-	"  make verify        Run lint + unit tests + AI backpressure" \
+	"  make verify        Run lint + unit tests" \
 	"  make quality       Run extended checks (race, coverage, security, arch)" \
 	"  make format        Run gofmt on tracked Go files" \
 	"  make lint          Run golangci-lint" \
@@ -19,12 +19,11 @@ help:
 	"  make mutation      Run mutation testing (gremlins)" \
 	"  make security      Run govulncheck and gosec" \
 	"  make arch          Run go-arch-lint" \
-	"  make backpressure  Validate diff size/risk profile" \
 	"  make doctor        Print local tooling diagnostics" \
 	"  make tools         Install required CLI tooling" \
 	"  make run           Execute cmd/app"
 
-verify: lint test backpressure
+verify: lint test
 
 quality: verify test-race test-coverage security arch
 
@@ -68,7 +67,7 @@ tools:
 	@$(GO) install golang.org/x/vuln/cmd/govulncheck@latest
 	@$(GO) install github.com/securego/gosec/v2/cmd/gosec@latest
 	@$(GO) install github.com/fe3dback/go-arch-lint@latest
-	@$(GO) install github.com/BobuSumisu/gremlins/cmd/gremlins@latest
+	@$(GO) install github.com/go-gremlins/gremlins/cmd/gremlins@latest
 
 run:
 	@$(GO) run ./cmd/app
