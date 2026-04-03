@@ -1,0 +1,59 @@
+{
+  "require-dev": {
+    "pestphp/pest": "^3.0",
+    "phpstan/phpstan": "^1.12",
+    "rector/rector": "^1.2",
+    "carthage-software/mago": "^1.18",
+    "shipmonk/composer-dependency-analyser": "^1.8"
+  },
+  "config": {
+    "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "format": "mago format",
+    "format:check": "mago format --check",
+    "lint": "mago lint",
+    "lint:fix": "mago lint --fix",
+    "analyze": "mago analyze",
+    "phpstan": "phpstan analyse",
+    "deps:analyze": "composer-dependency-analyser",
+    "test": "pest",
+    "test:watch": "pest --watch",
+    "test:coverage": "pest --coverage --coverage-html=coverage --coverage-report=text",
+    "mutation": "pest --mutate --min-covered-msi=90 --min-msi=90",
+    "mutation:full": "pest --mutate --min-covered-msi=90 --min-msi=90 --no-progress",
+    "rector": "rector process",
+    "validate:composer": "composer validate --strict --no-check-lock",
+    "validate:autoload": "composer dump-autoload --dev --optimize --strict-psr --strict-ambiguous",
+    "verify": [
+      "@lint",
+      "@test",
+      "@backpressure"
+    ],
+    "quality": [
+      "@verify",
+      "@analyze",
+      "@phpstan",
+      "@deps:analyze",
+      "@test:coverage",
+      "@mutation",
+      "@rector:check",
+      "@validate:composer",
+      "@validate:autoload"
+    ]
+  }
+}
