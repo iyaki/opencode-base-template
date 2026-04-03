@@ -3,7 +3,7 @@
   "description": "Starter harness for PHP projects with AI guardrails.",
   "license": "proprietary",
   "require-dev": {
-    "pestphp/pest": "^3.0",
+    "pestphp/pest": "^4.4",
     "phpstan/phpstan": "^1.12",
     "rector/rector": "^1.2",
     "carthage-software/mago": "^1.18",
