@@ -6,14 +6,12 @@
          cacheDirectory=".phpunit.cache"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         beStrictAboutTodo="true"
          failOnRisky="true"
          failOnWarning="true"
          stopOnDefect="false"
          stopOnFailure="false"
          stopOnSkipped="false"
-         stopOnIncomplete="false"
-         enforceTimeoutOnlyForTestsWithTestSizeAttribute="false">
+         stopOnIncomplete="false">
     <testsuites>
         <testsuite name="Unit Tests">
             <directory>tests/Unit</directory>
@@ -22,7 +20,7 @@
             <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
             <directory suffix=".php">src</directory>
         </include>
@@ -30,6 +28,8 @@
             <directory>src/migrations</directory>
             <directory>src/config</directory>
         </exclude>
+    </source>
+    <coverage>
         <report>
             <html outputDirectory="coverage"/>
             <text outputFile="php://stdout" showOnlySummary="true"/>
