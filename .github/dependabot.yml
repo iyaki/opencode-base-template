@@ -27,3 +27,12 @@ updates:
     directory: "/templates/go"
     schedule:
       interval: weekly
+
+  - package-ecosystem: "composer"
+    directory: "/templates/php"
+    schedule:
+      interval: weekly
+  - package-ecosystem: "github-actions"
+    directory: "/templates/php"
+    schedule:
+      interval: weekly
