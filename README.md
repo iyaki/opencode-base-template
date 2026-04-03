@@ -140,6 +140,18 @@ Scaffolding folders are provided under templates/:
 
 You can add your own starter files, scripts, and language-specific conventions there.
 
+To apply one of these stacks into an existing repository, use:
+
+```sh
+scripts/stack-setup.sh <template>
+```
+
+Stack guides:
+
+- go: `templates/go/README.md`
+- javascript: `templates/javascript/README.md`
+- php: `templates/php/README.md`
+
 ## Recommended first customizations
 
 - Rename the devcontainer project.

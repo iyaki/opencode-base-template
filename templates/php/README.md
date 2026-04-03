@@ -14,10 +14,9 @@ Follows the same quality-first workflow used in the Go and JavaScript templates.
 - **PHPStan** (level 9) for deep type-level static analysis.
 - **shipmonk/composer-dependency-analyser** for dead/shadow/misplaced dependency validation.
 - **Rector** for automated code refactoring and modernization.
-- **Deptrac** for enforcing architectural dependency constraints.
-- **Infection** for mutation testing to validate test suite effectiveness.
+- Pest mutation testing mode for mutation score checks.
 - **Composer validate** with strict PSR and ambiguity checks.
-- **Lefthook** pre-commit and pre-push hooks.
+- **Lefthook** pre-commit hook.
 - CI workflow in `.github/workflows/ci.yml` using:
   - `shivammathur/setup-php` for PHP environment setup
   - `shivammathur/cache-extensions` for PHP extension caching
@@ -26,18 +25,17 @@ Follows the same quality-first workflow used in the Go and JavaScript templates.
 
 ## Quick start
 
-1. Copy the template into the target repository.
-2. Initialize Git if needed.
-3. Install dependencies.
-4. Install git hooks.
-5. Run verification checks.
+1. Apply the PHP template in your target repository.
+2. Install dependencies.
+3. Install git hooks.
+4. Run verification checks.
 
 Suggested commands:
 
 ```sh
-cp -R templates/php/. .
+scripts/stack-setup.sh php --target . --force
 composer install
-composer doctor
+vendor/bin/lefthook install
 composer verify
 ```
 
@@ -45,8 +43,8 @@ composer verify
 
 | Script | What it does |
 |---|---|
-| `composer verify` | mago lint + test + AI backpressure (fast gate) |
-| `composer quality` | verify + mago analyze + phpstan + coverage + mutation + rector check + deptrac + validation |
+| `composer verify` | mago lint + tests (fast gate) |
+| `composer quality` | verify + analyze + phpstan + dependency analysis + coverage + mutation + validation |
 | `composer format` | format PHP code with mago (PER-CS2.0) |
 | `composer format:check` | check formatting without modifying files (`--check`) |
 | `composer lint` | run mago lint (fast style + semantic check) |
@@ -54,18 +52,39 @@ composer verify
 | `composer analyze` | run mago semantic analysis |
 | `composer phpstan` | run PHPStan deep type analysis (level 9) |
 | `composer deps:analyze` | validate dead/shadow/misplaced Composer dependencies |
-| `composer deps:analyze:verbose` | dependency validation with verbose usage output |
 | `composer test` | run Pest unit tests |
 | `composer test:watch` | watch tests and re-run on changes |
 | `composer test:coverage` | generate coverage report |
-| `composer mutation` | run Infection mutation testing |
+| `composer mutation` | run Pest mutation testing with MSI thresholds |
+| `composer mutation:full` | run full Pest mutation testing without progress output |
 | `composer rector` | run Rector auto-refactoring |
-| `composer rector:check` | check what Rector would change (dry-run) |
-| `composer deptrac` | validate architectural dependencies |
 | `composer validate:composer` | validate composer.json configuration |
 | `composer validate:autoload` | validate and optimize autoload |
-| `composer backpressure` | validate diff size and risk profile |
-| `composer doctor` | print local tooling diagnostics |
+
+## Hook pipeline
+
+```text
+pre-commit (parallel, skips merge/rebase):
+  setup: composer format (staged php files auto-fixed)
+  jobs:  composer-validate · composer-autoload · mago-lint · mago-analyze · phpstan · dependency-analyser · tests · mutation
+```
+
+## CI workflow
+
+`.github/workflows/ci.yml` runs on pushes and pull requests targeting `main` and `develop`.
+
+Current job matrix:
+
+- `quality` on PHP `8.3` and `8.4`.
+
+Current checks in CI:
+
+- composer validation
+- mago lint + format check + analyze
+- phpstan analysis
+- dependency analysis
+- tests + coverage
+- mutation testing (`continue-on-error: true`)
 
 ## Quick reference
 
@@ -109,50 +128,30 @@ COVERAGE_MIN=90 composer test:coverage
 
 ## Mutation testing threshold
 
-Default minimum MSI (Mutation Score Indicator) is **90%**. Set in `infection.xml`:
+Default minimum MSI (Mutation Score Indicator) is **90%**, configured in composer scripts:
 
-```xml
-<infection minCoveredMsi="90" minMsi="90">
+```json
+"mutation": "@php vendor/bin/pest --configuration=pest.xml --mutate --min-covered-msi=90 --min-msi=90"
 ```
 
-## Architecture layers
+## Project layout
 
-`deptrac.yaml` defines allowed dependency directions between layers:
+Template files include:
 
-- **Presentation**: HTTP/CLI handlers → App, Domain, Shared
-- **App**: Use cases/services → Domain, Shared
-- **Domain**: Business logic → Shared
-- **Infrastructure**: External integrations → Shared
-- **Shared**: Common utilities, no dependencies
-
-Customize layers and rules to match your project's architecture.
-
-## Backpressure
-
-`scripts/ai-backpressure.sh` blocks changes that are too large or risky to keep human review reasonable.
-
-Optional environment variables:
-
-- `MAX_CHANGED_FILES` (default: 25)
-- `MAX_TOTAL_ADDED` (default: 900)
-- `MAX_LARGEST_FILE_ADDED` (default: 260)
-
-Tune these limits based on the expected PR size in your team:
-
-```sh
-MAX_CHANGED_FILES=50 MAX_TOTAL_ADDED=1500 composer backpressure
-```
+- `src/Application.php` and `public/index.php` as a minimal runtime skeleton
+- `tests/Unit/ApplicationTest.php` plus test bootstrap helpers
+- tool config files (`mago.toml`, `phpstan.neon`, `rector.php`, `pest.xml`)
 
 ## PHP Version
 
-This template targets **PHP 8.3+**. Adjust `composer.json` and workflow if using different versions:
+This template is configured and tested for **PHP 8.3/8.4** in CI.
 
-```json
-{
-  "require": {
-    "php": ">=8.2"
-  }
-}
+If your project targets a different version, update both `mago.toml` and `.github/workflows/ci.yml`.
+
+Example `mago.toml` snippet:
+
+```toml
+php-version = "8.3"
 ```
 
 ## CI/CD Workflow
@@ -167,10 +166,8 @@ The GitHub Actions workflow in `.github/workflows/ci.yml`:
 6. Executes test suite
 7. Generates coverage reports
 8. Checks code formatting
-9. Validates Rector changes
-10. Checks architectural dependencies
-11. Runs mutation testing
-12. Uploads coverage to Codecov (optional)
+9. Runs Composer dependency analysis
+10. Runs mutation testing (non-blocking)
 
 ## Recommended PHP Extensions
 
@@ -188,41 +185,24 @@ All tools are configured with sensible defaults:
 - **mago.toml**: Mago config (lint, analyze, format — PER-CS2.0)
 - **phpstan.neon**: Level 9 static analysis with bleeding edge rules
 - **rector.php**: PHP 8.3 modernization rules
-- **deptrac.yaml**: Layered architecture enforcement
 - **pest.xml**: Test suite configuration with coverage
-- **infection.xml**: Mutation testing with MSI thresholds
 - **composer.json**: Scripts for all CLI commands
-
-## Scripts
-
-Custom scripts in `scripts/`:
-
-- `ai-backpressure.sh`: Validates diff size and risk profile
-- `harness-doctor.sh`: Checks tool installation and configuration
-
-Run doctor to diagnose issues:
-
-```sh
-composer doctor
-```
 
 ## Next steps
 
 1. Update `composer.json` with your project name and namespace
-2. Customize `deptrac.yaml` for your architecture
-3. Add business logic in `src/` following the domain-driven design principles
-4. Write tests in `tests/`
-5. Configure `.github/workflows/ci.yml` based on your CI/CD needs
-6. Review and customize `phpstan.neon` rules for your codebase
-7. Adjust coverage and mutation testing thresholds in `pest.xml` and `infection.xml`
+2. Add business logic in `src/` and expose it from `public/index.php`
+3. Write tests in `tests/`
+4. Configure `.github/workflows/ci.yml` based on your CI/CD needs
+5. Review and customize `phpstan.neon` and `rector.php` rules for your codebase
+6. Adjust coverage and mutation testing thresholds in composer scripts
 
 ## Troubleshooting
 
 **PHP not found**: Ensure PHP 8.3+ is installed and in your PATH
 **Composer error**: Run `composer install` to install dependencies
 **Tests failing**: Check `tests/bootstrap.php` for proper test configuration
-**Script errors**: Run `composer doctor` to diagnose tool issues
-**Mutation testing timeout**: Adjust `infection.xml` or increase server timeout
+**Mutation testing timeout**: Try `composer mutation:full` in CI and run `composer mutation` locally
 
 ## Composer Scripts Reference
 
@@ -238,6 +218,6 @@ All commands use `composer` - run `composer list` for full list:
 - `composer deps:analyze` - Composer dependency validation
 - `composer test` - Run tests with watch option available
 - `composer rector` - Auto-fix code modernization
-- `composer deptrac` - Check architecture rules
+- `composer mutation` - Mutation score checks using Pest mutation mode
 
 See `composer.json` for full script definitions.
