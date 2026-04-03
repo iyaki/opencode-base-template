@@ -97,6 +97,17 @@ To enable it:
 
 Without this setting, the workflow can run but will not be allowed to auto-merge Dependabot PRs.
 
+### 7) Automatic template config sync
+
+This template includes [.github/workflows/sync-template-files.yml](.github/workflows/sync-template-files.yml).
+
+Behavior:
+
+- Trigger: push to `main` (excluding pushes that only touch `templates/**`) or manual run with `workflow_dispatch`.
+- Action: inspects changed root files and performs a 3-way merge into `templates/*/<same-path>` only when that target file already exists.
+- Output: creates and pushes a `sync/*` branch with the updates, then opens a PR to `main`.
+- Safety: if no effective changes are produced, no PR is created; if a merge conflict appears, the workflow fails for manual resolution.
+
 ## Sensible defaults checklist
 
 This template intentionally defaults to:
