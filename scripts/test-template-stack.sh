@@ -102,7 +102,7 @@ smoke_test_php() {
 	pushd "$workdir" >/dev/null
 	XDEBUG_MODE=off composer install --no-interaction --no-progress
 	XDEBUG_MODE=off composer validate --strict --no-check-lock
-	XDEBUG_MODE=off vendor/bin/pest --configuration=pest.xml
+	XDEBUG_MODE=off vendor/bin/pest --configuration=pest.xml --no-coverage
 	output="$(XDEBUG_MODE=off php public/index.php)"
 	popd >/dev/null
 
