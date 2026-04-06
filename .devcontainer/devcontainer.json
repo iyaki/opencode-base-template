@@ -3,7 +3,8 @@
 	"image": "mcr.microsoft.com/devcontainers/universal:5-linux",
 
 	"runArgs": [
-		"--userns=keep-id" // For podman users, to avoid permission issues with bind mountson on rootless mode.
+		"--userns=keep-id", // For podman users, to avoid permission issues with bind mountson on rootless mode.
+		"--env-file", "${localWorkspaceFolder}/.env"
 		// "--memory", "8g"
 	],
 
