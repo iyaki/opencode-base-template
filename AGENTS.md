@@ -1,13 +1,19 @@
 # Agent Guidelines
 
-## Specifications
+## Spec-First Workflow
 
-**IMPORTANT:** Before implementing any feature, consult the specifications in `specs/README.md`.
+- Read `specs/README.md` before any feature work.
+- Assume specs describe intent, not implementation.
+- Verify reality in the codebase before claiming something exists.
+- Implement to spec patterns and data shapes; update specs only when asked.
+- When Writting specs, **NEVER** follow Test Driven Development practices. Write the spec first and stop.
+- For programming tasks, always load Test Driven Development skill.
 
-- **Assume NOT implemented.** Many specs describe planned features that may not yet exist in the codebase.
-- **Check the codebase first.** Before concluding something is or isn't implemented, search the actual code. Specs describe intent; code describes reality.
-- **Use specs as guidance.** When implementing a feature, follow the design patterns, types, and architecture defined in the relevant spec.
-- **Spec index:** `specs/README.md` lists all specifications organized by category (core, LLM, security, etc.).
+## Testing and Quality Gates
+
+- Follow Test Driven Development practices: write failing tests before implementation.
+- Coverage gate: 100%.
+- Execute mutation testing ONLY in final stages of the task development. **NEVER** execute mutation testing during the Test Driven Development process.
 
 ## Commands
 
@@ -21,6 +27,9 @@
 
 ## Code Style
 
-##
+## Implementation Guidance
 
-- When multiple code paths do similar things with slight variations, create a shared service with a request struct that cpatures the variations, rather than having each caller implemnt its own logic.
+- Keep scans deterministic and reproducible.
+- Skip binary/oversized files per spec; record skipped file stats.
+- Treat match text as sensitive; avoid logging it in console.
+- When multiple code paths do similar work with small variations, consolidate into shared services with request structs.
