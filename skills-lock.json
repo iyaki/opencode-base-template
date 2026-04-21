@@ -55,6 +55,11 @@
       "source": "obra/superpowers",
       "sourceType": "github",
       "computedHash": "126f1ebf6ccd414f42544f6e83d8cc5adb089e1108eaffb7c400701e37eecd9f"
+    },
+    "vertical-slice-architecture": {
+      "source": "iyaki/opencode-base-template",
+      "sourceType": "github",
+      "computedHash": "a4994f96e5ad61cda4da2634e895c90f4e93246c84ecca7a79a14714e436dea7"
     }
   }
 }
