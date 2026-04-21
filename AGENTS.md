@@ -25,6 +25,8 @@
 
 ## Architecture
 
+- Default architecture for new feature work is Vertical Slice (see `adr/2026-04-21-default-to-vertical-slice-architecture.md`); exceptions require explicit PR rationale and maintainer approval per ADR.
+
 ## Code Style
 
 ## Implementation Guidance

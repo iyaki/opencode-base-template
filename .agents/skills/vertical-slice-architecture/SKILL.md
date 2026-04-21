@@ -11,6 +11,10 @@ Use Vertical Slice as the default architecture bias for AI-assisted development.
 
 Treat this as a default, not a law. Choose simpler structure when scope is tiny or short-lived.
 
+Policy source of truth:
+
+- `adr/2026-04-21-default-to-vertical-slice-architecture.md`
+
 ## Default Position
 
 Prefer Vertical Slice first because:
