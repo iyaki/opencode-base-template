@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "d0da1d9cc3e60e0406e2b473db7bdda0214785087ed4b39144274bdf13963f64"
     },
+    "architecture": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "98b5d7fa700e2cb98cb7a2e55fb3c8dab460b87cc802f23a09c86031668f72d4"
+    },
     "code-search": {
       "source": "iyaki/opencode-base-template",
       "sourceType": "github",
