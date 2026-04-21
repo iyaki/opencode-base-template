@@ -88,7 +88,7 @@
 	],
 	"portsAttributes": {
 		"4096": {
-			"label": "Default OpenCode server"
+			"label": "OpenCode server"
 		}
 	}
 }
