@@ -19,6 +19,8 @@ This repository gives sensible defaults, guardrails, and batteries-included tool
 	- OpenCode
 	- Ralph
 	- Lefthook (git hooks manager)
+	- agent-browser CLI
+	- Repomix CLI
 - VS Code extensions preconfigured:
 	- OpenCode extension
 	- EditorConfig
@@ -26,6 +28,7 @@ This repository gives sensible defaults, guardrails, and batteries-included tool
 - Host config mounts for OpenCode state and GitHub CLI config.
 - Auto setup on initialize/post-create/post-start:
 	- Creates local OpenCode and GH config directories if missing.
+	- Installs browser dependencies for agent-browser.
 	- Installs git hooks via Lefthook.
 	- Refreshes available OpenCode models.
 
@@ -66,13 +69,18 @@ Included but disabled by default:
 
 This template ships with a curated starter skill set:
 
+- adr-skill: Create and maintain ADRs for agentic coding workflows.
+- architecture: Analyze tradeoffs and document architecture decisions.
 - code-search: Symbol lookup workflow using Repomix snapshots.
 - agent-browser: Browser automation and UI verification using agent-browser.
+- create-readme: Generate and update project README files.
 - frontend-design: High-quality, production-grade frontend design guidance.
 - reddit: Fetch/search subreddit posts and metadata through Reddit public JSON APIs.
 - shell-command: Non-interactive shell execution strategy for agent reliability.
 - skill-creator: Build and package new reusable skills.
 - spec-creator: Generate technical specs compatible with Ralph workflows.
+- test-driven-development: Test-first implementation workflow guidance.
+- vertical-slice-architecture: Feature-centric architecture guidance for new work.
 
 ### 5) Repository defaults and quality baseline
 
@@ -81,6 +89,9 @@ This template ships with a curated starter skill set:
 - Dependabot configured for:
 	- Devcontainer updates
 	- npm updates
+	- GitHub Actions updates
+	- Go module updates for the Go template
+	- Composer updates for the PHP template
 - Dependabot auto-merge workflow included for minor updates.
 - Security workflow template included for Semgrep (requires SEMGREP_APP_TOKEN secret).
 
@@ -158,7 +169,7 @@ Stack guides:
 - Tailor AGENTS.md to your code review and coding standards.
 - Configure lefthook rules with lint/test checks relevant to your stack.
 - Enable additional CI workflows (tests, lint, build, release).
-- Add a TDD-focused skill if your workflow relies on test-first development.
+- Review and tune the bundled skills to match your team workflow.
 
 ## Reference links
 
