@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "d0da1d9cc3e60e0406e2b473db7bdda0214785087ed4b39144274bdf13963f64"
     },
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "computedHash": "c19a532a3777698b80b35270939a1dc559da451381971b3e1e78174d1ab54863"
+    },
     "architecture": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",
@@ -20,11 +25,6 @@
       "source": "github/awesome-copilot",
       "sourceType": "github",
       "computedHash": "d0ece1b2164ce1376e4ab6e98d6ac079df3a2a94f5f02224362b6a1ce2516ae9"
-    },
-    "dev-browser": {
-      "source": "iyaki/opencode-base-template",
-      "sourceType": "github",
-      "computedHash": "69157760c4dedc5a8688d801472a4e101c0d422f5a808b37000f8d2c8d8f0b94"
     },
     "frontend-design": {
       "source": "anthropics/skills",

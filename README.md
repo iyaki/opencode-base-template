@@ -67,7 +67,7 @@ Included but disabled by default:
 This template ships with a curated starter skill set:
 
 - code-search: Symbol lookup workflow using Repomix snapshots.
-- dev-browser: Browser automation and UI verification using agent-browser.
+- agent-browser: Browser automation and UI verification using agent-browser.
 - frontend-design: High-quality, production-grade frontend design guidance.
 - reddit: Fetch/search subreddit posts and metadata through Reddit public JSON APIs.
 - shell-command: Non-interactive shell execution strategy for agent reliability.
