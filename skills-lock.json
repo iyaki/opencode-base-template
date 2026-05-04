@@ -4,61 +4,73 @@
     "adr-skill": {
       "source": "vercel/ai",
       "sourceType": "github",
+      "skillPath": "skills/adr-skill/SKILL.md",
       "computedHash": "d0da1d9cc3e60e0406e2b473db7bdda0214785087ed4b39144274bdf13963f64"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
+      "skillPath": "skills/agent-browser/SKILL.md",
       "computedHash": "c19a532a3777698b80b35270939a1dc559da451381971b3e1e78174d1ab54863"
     },
     "architecture": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",
+      "skillPath": "skills/architecture/SKILL.md",
       "computedHash": "98b5d7fa700e2cb98cb7a2e55fb3c8dab460b87cc802f23a09c86031668f72d4"
     },
     "code-search": {
       "source": "iyaki/opencode-base-template",
       "sourceType": "github",
+      "skillPath": ".agents/skills/code-search/SKILL.md",
       "computedHash": "731193d39a9977a3b65af35c126ab701101f728a4e086d69c70cf947db1badcf"
     },
     "create-readme": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
+      "skillPath": "skills/create-readme/SKILL.md",
       "computedHash": "d0ece1b2164ce1376e4ab6e98d6ac079df3a2a94f5f02224362b6a1ce2516ae9"
     },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67"
     },
     "reddit": {
       "source": "resciencelab/opc-skills",
       "sourceType": "github",
+      "skillPath": "skills/reddit/SKILL.md",
       "computedHash": "cb78c8355aba2e3334289c99e7ed06fb2d38a1defb17a649f5082611939a162d"
     },
     "shell-command": {
       "source": "iyaki/opencode-base-template",
       "sourceType": "github",
+      "skillPath": ".agents/skills/shell-command/SKILL.md",
       "computedHash": "8d55f17079e56f91df0af691bd5f6712f5fc53fef2f6a8d7fd6143ea39645b21"
     },
     "skill-creator": {
       "source": "anthropics/skills",
       "sourceType": "github",
+      "skillPath": "skills/skill-creator/SKILL.md",
       "computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
     },
     "spec-creator": {
       "source": "iyaki/ralph",
       "sourceType": "github",
+      "skillPath": ".agents/skills/spec-creator/SKILL.md",
       "computedHash": "f9bb9884230313ba4a62ecc4d6a299b85c9df4584c40b80504f6f43d90defff8"
     },
     "test-driven-development": {
       "source": "obra/superpowers",
       "sourceType": "github",
+      "skillPath": "skills/test-driven-development/SKILL.md",
       "computedHash": "126f1ebf6ccd414f42544f6e83d8cc5adb089e1108eaffb7c400701e37eecd9f"
     },
     "vertical-slice-architecture": {
       "source": "iyaki/opencode-base-template",
       "sourceType": "github",
+      "skillPath": ".agents/skills/vertical-slice-architecture/SKILL.md",
       "computedHash": "a4994f96e5ad61cda4da2634e895c90f4e93246c84ecca7a79a14714e436dea7"
     }
   }
