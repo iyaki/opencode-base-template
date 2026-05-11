@@ -5,13 +5,13 @@
       "source": "vercel/ai",
       "sourceType": "github",
       "skillPath": "skills/adr-skill/SKILL.md",
-      "computedHash": "d0da1d9cc3e60e0406e2b473db7bdda0214785087ed4b39144274bdf13963f64"
+      "computedHash": "10a3b51ce33cb5d66920283ff58879e364409efde0afd97f09e3631307a116fa"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "computedHash": "c19a532a3777698b80b35270939a1dc559da451381971b3e1e78174d1ab54863"
+      "computedHash": "228f87d57035100d9dc6efcfc05aafd4b6e3962adacaa04b8217ab2fadb15dc8"
     },
     "architecture": {
       "source": "sickn33/antigravity-awesome-skills",
