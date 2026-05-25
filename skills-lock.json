@@ -5,7 +5,7 @@
       "source": "vercel/ai",
       "sourceType": "github",
       "skillPath": "skills/adr-skill/SKILL.md",
-      "computedHash": "10a3b51ce33cb5d66920283ff58879e364409efde0afd97f09e3631307a116fa"
+      "computedHash": "99558cced2e3f911adf3b7badb39eee3feb30ba96789aafe09dc8b245b1a160d"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
