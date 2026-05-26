@@ -13,7 +13,10 @@
 			"node_modules/*": "deny",
 			"logs/*": "deny",
 			"/tmp/*": "allow"
-		}
+		},
+		"external_directory": {
+			"/tmp/*": "allow"
+		},
 	},
 	"agent": {
 		"ralph": {
