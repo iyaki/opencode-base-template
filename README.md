@@ -70,7 +70,6 @@ Included but disabled by default:
 This template ships with a curated starter skill set:
 
 - adr-skill: Create and maintain ADRs for agentic coding workflows.
-- architecture: Analyze tradeoffs and document architecture decisions.
 - code-search: Symbol lookup workflow using Repomix snapshots.
 - agent-browser: Browser automation and UI verification using agent-browser.
 - create-readme: Generate and update project README files.
