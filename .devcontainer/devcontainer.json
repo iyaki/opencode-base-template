@@ -53,7 +53,7 @@
 		// },
 		"ghcr.io/devcontainers-extra/features/shfmt:": {},
 		"ghcr.io/devcontainers-extra/features/npm-packages:": {
-			"packages": "agent-browser,repomix"
+			"packages": "agent-browser"
 		},
 		// "ghcr.io/devcontainers-extra/features/uv:": {},
 		"ghcr.io/devcontainers-extra/features/opencode:": {},

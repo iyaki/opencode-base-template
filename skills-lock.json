@@ -13,12 +13,6 @@
       "skillPath": "skills/agent-browser/SKILL.md",
       "computedHash": "228f87d57035100d9dc6efcfc05aafd4b6e3962adacaa04b8217ab2fadb15dc8"
     },
-    "code-search": {
-      "source": "iyaki/opencode-base-template",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/code-search/SKILL.md",
-      "computedHash": "731193d39a9977a3b65af35c126ab701101f728a4e086d69c70cf947db1badcf"
-    },
     "create-readme": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
