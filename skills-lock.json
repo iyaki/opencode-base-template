@@ -31,12 +31,6 @@
       "skillPath": "skills/reddit/SKILL.md",
       "computedHash": "cb78c8355aba2e3334289c99e7ed06fb2d38a1defb17a649f5082611939a162d"
     },
-    "shell-command": {
-      "source": "iyaki/opencode-base-template",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/shell-command/SKILL.md",
-      "computedHash": "8d55f17079e56f91df0af691bd5f6712f5fc53fef2f6a8d7fd6143ea39645b21"
-    },
     "skill-creator": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -54,12 +48,6 @@
       "sourceType": "github",
       "skillPath": "skills/test-driven-development/SKILL.md",
       "computedHash": "126f1ebf6ccd414f42544f6e83d8cc5adb089e1108eaffb7c400701e37eecd9f"
-    },
-    "vertical-slice-architecture": {
-      "source": "iyaki/opencode-base-template",
-      "sourceType": "github",
-      "skillPath": ".agents/skills/vertical-slice-architecture/SKILL.md",
-      "computedHash": "a4994f96e5ad61cda4da2634e895c90f4e93246c84ecca7a79a14714e436dea7"
     }
   }
 }
